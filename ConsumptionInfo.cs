@@ -1,4 +1,5 @@
-﻿using CsvHelper.Configuration.Attributes;
+﻿using AC3GUIProgram;
+using CsvHelper.Configuration.Attributes;
 using System.Xml.Serialization;
 
 namespace M3UF5CSVFileManagement
@@ -31,9 +32,13 @@ namespace M3UF5CSVFileManagement
         [Name("Consum domèstic per càpita")]
         public float HouseExpenseCapita {  get; set; }
 
-        public static void XMLSerializeGroup(List<ConsumptionInfo> groupInfo)
+        public Location GetLocation()
         {
-
+            return new Location()
+            {
+                LocCode = LocCode,
+                LocName = LocName,
+            };
         }
 
         public override string ToString()

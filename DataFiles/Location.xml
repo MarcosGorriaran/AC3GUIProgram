@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfLocation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Location>
+    <Codi_comarca>1</Codi_comarca>
+    <Comarca>ALT CAMP, L'</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>2</Codi_comarca>
+    <Comarca>ALT EMPORDÀ, L'</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>3</Codi_comarca>
+    <Comarca>ALT PENEDÈS, L'</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>4</Codi_comarca>
+    <Comarca>ALT URGELL, L'</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>5</Codi_comarca>
+    <Comarca>ALTA RIBAGORÇA, L'</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>6</Codi_comarca>
+    <Comarca>ANOIA, L'</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>7</Codi_comarca>
+    <Comarca>BAGES, EL</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>8</Codi_comarca>
+    <Comarca>BAIX CAMP, EL</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>9</Codi_comarca>
+    <Comarca>BAIX EBRE, EL</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>10</Codi_comarca>
+    <Comarca>BAIX EMPORDÀ, EL</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>11</Codi_comarca>
+    <Comarca>BAIX LLOBREGAT, EL</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>12</Codi_comarca>
+    <Comarca>BAIX PENEDÈS, EL</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>13</Codi_comarca>
+    <Comarca>BARCELONÈS, EL</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>14</Codi_comarca>
+    <Comarca>BERGUEDÀ, EL</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>15</Codi_comarca>
+    <Comarca>CERDANYA, LA</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>16</Codi_comarca>
+    <Comarca>CONCA DE BARBERÀ, LA</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>17</Codi_comarca>
+    <Comarca>GARRAF, EL</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>18</Codi_comarca>
+    <Comarca>GARRIGUES, LES</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>19</Codi_comarca>
+    <Comarca>GARROTXA, LA</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>20</Codi_comarca>
+    <Comarca>GIRONÈS, EL</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>21</Codi_comarca>
+    <Comarca>MARESME, EL</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>22</Codi_comarca>
+    <Comarca>MONTSIÀ, EL</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>23</Codi_comarca>
+    <Comarca>NOGUERA, LA</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>24</Codi_comarca>
+    <Comarca>OSONA</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>25</Codi_comarca>
+    <Comarca>PALLARS JUSSÀ, EL</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>26</Codi_comarca>
+    <Comarca>PALLARS SOBIRÀ, EL</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>27</Codi_comarca>
+    <Comarca>PLA D'URGELL, EL</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>28</Codi_comarca>
+    <Comarca>PLA DE L'ESTANY, EL</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>29</Codi_comarca>
+    <Comarca>PRIORAT, EL</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>30</Codi_comarca>
+    <Comarca>RIBERA D'EBRE, LA</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>31</Codi_comarca>
+    <Comarca>RIPOLLÈS, EL</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>32</Codi_comarca>
+    <Comarca>SEGARRA, LA</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>33</Codi_comarca>
+    <Comarca>SEGRIÀ, EL</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>34</Codi_comarca>
+    <Comarca>SELVA, LA</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>35</Codi_comarca>
+    <Comarca>SOLSONÈS, EL</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>36</Codi_comarca>
+    <Comarca>TARRAGONÈS, EL</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>37</Codi_comarca>
+    <Comarca>TERRA ALTA</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>38</Codi_comarca>
+    <Comarca>URGELL, L'</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>39</Codi_comarca>
+    <Comarca>VAL D'ARAN, LA</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>40</Codi_comarca>
+    <Comarca>VALLÈS OCCIDENTAL, EL</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>41</Codi_comarca>
+    <Comarca>VALLÈS ORIENTAL, EL</Comarca>
+  </Location>
+  <Location>
+    <Codi_comarca>42</Codi_comarca>
+    <Comarca>Moianès</Comarca>
+  </Location>
+</ArrayOfLocation>
