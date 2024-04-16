@@ -110,13 +110,11 @@ namespace AC3GUIProgram
             lblLowerAns.Text = ConsumptionInfoHelper.IsLowestCapita(row, groupInfo) ? TrueAns : FalseAns;
         }
 
-        private void lblc_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            errorHandler.Clear();
             txtConsumCap.Text = string.Empty;
             txtEconomicAct.Text = string.Empty;
             txtHouseNet.Text = string.Empty;
@@ -156,32 +154,29 @@ namespace AC3GUIProgram
             catch (FormatException)
             {
                 error = true;
-                errorHandler.SetError(txtConsumCap, txtConsumCap.Text == string.Empty ? CanNotBeEmpty : InvalidFormat);
+                errorHandler.SetError(txtHouseNet, txtHouseNet.Text == string.Empty ? CanNotBeEmpty : InvalidFormat);
             }
             try
             {
-
+                newInfo.Population = Convert.ToInt32(txtPopulation.Text);
             }
             catch (FormatException)
             {
                 error = true;
-                errorHandler.SetError(txtConsumCap, txtConsumCap.Text == string.Empty ? CanNotBeEmpty : InvalidFormat);
+                errorHandler.SetError(txtPopulation, txtPopulation.Text == string.Empty ? CanNotBeEmpty : InvalidFormat);
             }
             try
             {
-                
+                newInfo.Total = Convert.ToInt32(txtTotal.Text);
             }
             catch (FormatException)
             {
                 error = true;
-                errorHandler.SetError(txtConsumCap, txtConsumCap.Text == string.Empty ? CanNotBeEmpty : InvalidFormat);
+                errorHandler.SetError(txtTotal, txtTotal.Text == string.Empty ? CanNotBeEmpty : InvalidFormat);
             }
             newInfo.Year = Convert.ToInt32(cmbYear.SelectedValue);
             newInfo.LocCode = (int)cmbLocName.SelectedValue;
             newInfo.LocName = cmbLocName.Text;
-            
-            newInfo.Population = Convert.ToInt32(txtPopulation.Text);
-            newInfo.Total = Convert.ToInt32(txtTotal.Text);
 
             if (!error)
             {

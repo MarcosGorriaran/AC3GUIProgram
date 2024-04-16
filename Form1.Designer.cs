@@ -178,7 +178,6 @@
             lblConsumCap.Size = new Size(206, 64);
             lblConsumCap.TabIndex = 5;
             lblConsumCap.Text = "Consum domèstic\r\nper càpita";
-            lblConsumCap.Click += lblc_Click;
             // 
             // lblEconomicAct
             // 
