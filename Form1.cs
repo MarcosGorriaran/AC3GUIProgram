@@ -1,4 +1,5 @@
 using M3UF5CSVFileManagement;
+using System.Xml.Linq;
 
 namespace AC3GUIProgram
 {
@@ -6,6 +7,8 @@ namespace AC3GUIProgram
     {
         const string FileInfoPath = "../../../DataFiles/WaterConsumptionOnCat.csv";
         const string FileLocationPath = "../../../DataFiles/Location.xml";
+        const string CanNotBeEmpty = "The value can't be empty";
+        const string InvalidFormat = "The value uses the wrong format";
         const string TrueAns = "Sí";
         const string FalseAns = "No";
         const int HighPop = 20000;
@@ -46,15 +49,15 @@ namespace AC3GUIProgram
             {
                 locations = new HashSet<Location>();
             }
-            
-            foreach(ConsumptionInfo info in groupInfo)
+
+            foreach (ConsumptionInfo info in groupInfo)
             {
                 locations.Add(info.GetLocation());
             }
             locations = locations.Distinct().ToHashSet();
-            using(StreamWriter sw = new StreamWriter(FileLocationPath))
+            using (StreamWriter sw = new StreamWriter(FileLocationPath))
             {
-                CRUD.XMLSerialize(sw, locations.OrderBy(loc=>loc.LocCode).Distinct().ToList());
+                CRUD.XMLSerialize(sw, locations.OrderBy(loc => loc.LocCode).Distinct().ToList());
             }
             cmbLocName.DataSource = locations.ToList();
             cmbLocName.ValueMember = "LocCode";
@@ -62,11 +65,11 @@ namespace AC3GUIProgram
         }
         private void CreateComboBoxContent()
         {
-            int minYear = groupInfo.Min(info=>info.Year);
+            int minYear = groupInfo.Min(info => info.Year);
 
             List<int> yearList = new List<int>();
 
-            for(int i = minYear; i<=LimitYear; i++)
+            for (int i = minYear; i <= LimitYear; i++)
             {
                 yearList.Add(i);
             }
@@ -78,22 +81,25 @@ namespace AC3GUIProgram
 
             foreach (ConsumptionInfo element in groupInfo)
             {
-                int row = dtgConsumptionInfo.Rows.Add();
-
-                dtgConsumptionInfo.Rows[row].Cells[0].Value = element.Year;
-                dtgConsumptionInfo.Rows[row].Cells[1].Value = element.LocCode;
-                dtgConsumptionInfo.Rows[row].Cells[2].Value = element.LocName;
-                dtgConsumptionInfo.Rows[row].Cells[3].Value = element.Population;
-                dtgConsumptionInfo.Rows[row].Cells[4].Value = element.HouseNet;
-                dtgConsumptionInfo.Rows[row].Cells[5].Value = element.EconomicAct;
-                dtgConsumptionInfo.Rows[row].Cells[6].Value = element.Total;
-                dtgConsumptionInfo.Rows[row].Cells[7].Value = element.HouseExpenseCapita;
+                TableAddElement(element);
             }
         }
+        private void TableAddElement(ConsumptionInfo element)
+        {
+            int row = dtgConsumptionInfo.Rows.Add();
 
+            dtgConsumptionInfo.Rows[row].Cells[0].Value = element.Year;
+            dtgConsumptionInfo.Rows[row].Cells[1].Value = element.LocCode;
+            dtgConsumptionInfo.Rows[row].Cells[2].Value = element.LocName;
+            dtgConsumptionInfo.Rows[row].Cells[3].Value = element.Population;
+            dtgConsumptionInfo.Rows[row].Cells[4].Value = element.HouseNet;
+            dtgConsumptionInfo.Rows[row].Cells[5].Value = element.EconomicAct;
+            dtgConsumptionInfo.Rows[row].Cells[6].Value = element.Total;
+            dtgConsumptionInfo.Rows[row].Cells[7].Value = element.HouseExpenseCapita;
+        }
         private void dtgConsumptionInfo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
             int row = e.RowIndex;
 
             ConsumptionInfo actualInfo = groupInfo[row];
@@ -101,8 +107,92 @@ namespace AC3GUIProgram
             lblPopBiggerThanAns.Text = ConsumptionInfoHelper.HasHighPop(actualInfo, HighPop) ? TrueAns : FalseAns;
             lblAvarageAns.Text = ConsumptionInfoHelper.GetAvgDomesticConsum(actualInfo).ToString();
             lblBiggerAns.Text = ConsumptionInfoHelper.IsHighestCapita(row, groupInfo) ? TrueAns : FalseAns;
-            lblLowerAns.Text = ConsumptionInfoHelper.IsLowestCapita(row,groupInfo) ? TrueAns : FalseAns;
+            lblLowerAns.Text = ConsumptionInfoHelper.IsLowestCapita(row, groupInfo) ? TrueAns : FalseAns;
         }
-        
+
+        private void lblc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtConsumCap.Text = string.Empty;
+            txtEconomicAct.Text = string.Empty;
+            txtHouseNet.Text = string.Empty;
+            txtPopulation.Text = string.Empty;
+            txtTotal.Text = string.Empty;
+            cmbLocName.SelectedIndex = 0;
+            cmbYear.SelectedIndex = 0;
+        }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            errorHandler.Clear();
+            ConsumptionInfo newInfo = new ConsumptionInfo();
+            bool error = false;
+            try
+            {
+                newInfo.HouseExpenseCapita = Convert.ToSingle(txtConsumCap.Text);
+            }
+            catch (FormatException)
+            {
+                errorHandler.SetError(txtConsumCap, txtConsumCap.Text == string.Empty ? CanNotBeEmpty : InvalidFormat);
+                error=true;
+            }
+            try
+            {
+                newInfo.EconomicAct = Convert.ToInt32(txtEconomicAct.Text);
+            }
+            catch (FormatException)
+            {
+                error = true;
+                errorHandler.SetError(txtEconomicAct, txtEconomicAct.Text == string.Empty ? CanNotBeEmpty : InvalidFormat);
+            }
+            try
+            {
+                newInfo.HouseNet = Convert.ToInt32(txtHouseNet.Text);
+            }
+            catch (FormatException)
+            {
+                error = true;
+                errorHandler.SetError(txtConsumCap, txtConsumCap.Text == string.Empty ? CanNotBeEmpty : InvalidFormat);
+            }
+            try
+            {
+
+            }
+            catch (FormatException)
+            {
+                error = true;
+                errorHandler.SetError(txtConsumCap, txtConsumCap.Text == string.Empty ? CanNotBeEmpty : InvalidFormat);
+            }
+            try
+            {
+                
+            }
+            catch (FormatException)
+            {
+                error = true;
+                errorHandler.SetError(txtConsumCap, txtConsumCap.Text == string.Empty ? CanNotBeEmpty : InvalidFormat);
+            }
+            newInfo.Year = Convert.ToInt32(cmbYear.SelectedValue);
+            newInfo.LocCode = (int)cmbLocName.SelectedValue;
+            newInfo.LocName = cmbLocName.Text;
+            
+            newInfo.Population = Convert.ToInt32(txtPopulation.Text);
+            newInfo.Total = Convert.ToInt32(txtTotal.Text);
+
+            if (!error)
+            {
+                groupInfo.Add(newInfo);
+                TableAddElement(newInfo);
+                CRUD.CSVSerialize(FileInfoPath, new List<ConsumptionInfo>()
+                {
+                    newInfo
+                });
+            }
+            
+        }
     }
 }

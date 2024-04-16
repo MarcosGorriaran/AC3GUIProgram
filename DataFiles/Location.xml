@@ -5,6 +5,10 @@
     <Comarca>ALT CAMP, L'</Comarca>
   </Location>
   <Location>
+    <Codi_comarca>1</Codi_comarca>
+    <Comarca />
+  </Location>
+  <Location>
     <Codi_comarca>2</Codi_comarca>
     <Comarca>ALT EMPORDÀ, L'</Comarca>
   </Location>

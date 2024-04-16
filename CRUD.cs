@@ -7,6 +7,22 @@ namespace M3UF5CSVFileManagement
 {
     public static class CRUD
     {
+        public static void CSVSerialize<Class>(string path, List<Class> elements)
+        {
+            CsvConfiguration config = new CsvConfiguration(CultureInfo.InvariantCulture)
+            {
+                HasHeaderRecord = false,
+            };
+            using FileStream stream = File.Open(path, FileMode.Append);
+            using StreamWriter writer = new StreamWriter(stream);
+            using CsvWriter writeCSV = new CsvWriter(writer,config);
+
+            foreach (Class element in elements)
+            {
+                writeCSV.WriteRecord(element);
+                writeCSV.NextRecord();
+            }
+        }
         public static List<Class> CSVDeserialize<Class,TMap>(StreamReader reader) where TMap : ClassMap
         {
             List<Class> result;
