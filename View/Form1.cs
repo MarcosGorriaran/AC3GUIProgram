@@ -101,13 +101,20 @@ namespace AC3GUIProgram
         {
 
             int row = e.RowIndex;
+            try
+            {
+                ConsumptionInfo actualInfo = groupInfo[row];
 
-            ConsumptionInfo actualInfo = groupInfo[row];
+                lblPopBiggerThanAns.Text = ConsumptionInfoHelper.HasHighPop(actualInfo, HighPop) ? TrueAns : FalseAns;
+                lblAvarageAns.Text = ConsumptionInfoHelper.GetAvgDomesticConsum(actualInfo).ToString();
+                lblBiggerAns.Text = ConsumptionInfoHelper.IsHighestCapita(row, groupInfo) ? TrueAns : FalseAns;
+                lblLowerAns.Text = ConsumptionInfoHelper.IsLowestCapita(row, groupInfo) ? TrueAns : FalseAns;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
 
-            lblPopBiggerThanAns.Text = ConsumptionInfoHelper.HasHighPop(actualInfo, HighPop) ? TrueAns : FalseAns;
-            lblAvarageAns.Text = ConsumptionInfoHelper.GetAvgDomesticConsum(actualInfo).ToString();
-            lblBiggerAns.Text = ConsumptionInfoHelper.IsHighestCapita(row, groupInfo) ? TrueAns : FalseAns;
-            lblLowerAns.Text = ConsumptionInfoHelper.IsLowestCapita(row, groupInfo) ? TrueAns : FalseAns;
+            }
+            
         }
 
 

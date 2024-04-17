@@ -92,100 +92,90 @@
             groupBox1.Controls.Add(lblPopulation);
             groupBox1.Controls.Add(lblLoc);
             groupBox1.Controls.Add(lblYear);
-            groupBox1.Location = new Point(22, 26);
-            groupBox1.Margin = new Padding(6);
+            groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(6);
-            groupBox1.Size = new Size(995, 435);
+            groupBox1.Size = new Size(536, 204);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Gestió de dades demogràfiques de regions";
             // 
             // txtTotal
             // 
-            txtTotal.Location = new Point(799, 273);
-            txtTotal.Margin = new Padding(6);
+            txtTotal.Location = new Point(430, 128);
             txtTotal.Name = "txtTotal";
-            txtTotal.Size = new Size(182, 39);
+            txtTotal.Size = new Size(100, 23);
             txtTotal.TabIndex = 13;
             // 
             // txtConsumCap
             // 
-            txtConsumCap.Location = new Point(799, 205);
-            txtConsumCap.Margin = new Padding(6);
+            txtConsumCap.Location = new Point(430, 96);
             txtConsumCap.Name = "txtConsumCap";
-            txtConsumCap.Size = new Size(182, 39);
+            txtConsumCap.Size = new Size(100, 23);
             txtConsumCap.TabIndex = 12;
             // 
             // txtEconomicAct
             // 
-            txtEconomicAct.Location = new Point(267, 279);
-            txtEconomicAct.Margin = new Padding(6);
+            txtEconomicAct.Location = new Point(144, 131);
             txtEconomicAct.Name = "txtEconomicAct";
-            txtEconomicAct.Size = new Size(182, 39);
+            txtEconomicAct.Size = new Size(100, 23);
             txtEconomicAct.TabIndex = 11;
             // 
             // txtHouseNet
             // 
-            txtHouseNet.Location = new Point(30, 279);
-            txtHouseNet.Margin = new Padding(6);
+            txtHouseNet.Location = new Point(16, 131);
             txtHouseNet.Name = "txtHouseNet";
-            txtHouseNet.Size = new Size(182, 39);
+            txtHouseNet.Size = new Size(100, 23);
             txtHouseNet.TabIndex = 10;
             // 
             // txtPopulation
             // 
-            txtPopulation.Location = new Point(503, 77);
-            txtPopulation.Margin = new Padding(6);
+            txtPopulation.Location = new Point(271, 36);
             txtPopulation.Name = "txtPopulation";
-            txtPopulation.Size = new Size(182, 39);
+            txtPopulation.Size = new Size(100, 23);
             txtPopulation.TabIndex = 9;
             // 
             // cmbLocName
             // 
+            cmbLocName.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbLocName.FormattingEnabled = true;
-            cmbLocName.Location = new Point(267, 77);
-            cmbLocName.Margin = new Padding(6);
+            cmbLocName.Location = new Point(144, 36);
             cmbLocName.Name = "cmbLocName";
-            cmbLocName.Size = new Size(221, 40);
+            cmbLocName.Size = new Size(121, 23);
             cmbLocName.TabIndex = 8;
             // 
             // cmbYear
             // 
+            cmbYear.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbYear.FormattingEnabled = true;
-            cmbYear.Location = new Point(30, 77);
-            cmbYear.Margin = new Padding(6);
+            cmbYear.Location = new Point(16, 36);
             cmbYear.Name = "cmbYear";
-            cmbYear.Size = new Size(221, 40);
+            cmbYear.Size = new Size(121, 23);
             cmbYear.TabIndex = 7;
             // 
             // lblTotal
             // 
             lblTotal.AutoSize = true;
-            lblTotal.Location = new Point(570, 279);
-            lblTotal.Margin = new Padding(6, 0, 6, 0);
+            lblTotal.Location = new Point(307, 131);
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(65, 32);
+            lblTotal.Size = new Size(32, 15);
             lblTotal.TabIndex = 6;
             lblTotal.Text = "Total";
             // 
             // lblConsumCap
             // 
             lblConsumCap.AutoSize = true;
-            lblConsumCap.Location = new Point(570, 190);
-            lblConsumCap.Margin = new Padding(6, 0, 6, 0);
+            lblConsumCap.Location = new Point(307, 89);
             lblConsumCap.Name = "lblConsumCap";
-            lblConsumCap.Size = new Size(206, 64);
+            lblConsumCap.Size = new Size(104, 30);
             lblConsumCap.TabIndex = 5;
             lblConsumCap.Text = "Consum domèstic\r\nper càpita";
             // 
             // lblEconomicAct
             // 
             lblEconomicAct.AutoSize = true;
-            lblEconomicAct.Location = new Point(267, 186);
-            lblEconomicAct.Margin = new Padding(6, 0, 6, 0);
+            lblEconomicAct.Location = new Point(144, 87);
             lblEconomicAct.Name = "lblEconomicAct";
-            lblEconomicAct.Size = new Size(268, 64);
+            lblEconomicAct.Size = new Size(134, 30);
             lblEconomicAct.TabIndex = 4;
             lblEconomicAct.Text = "Activitats econòmiques \r\ni fonts pròpies";
             lblEconomicAct.Click += label5_Click;
@@ -193,40 +183,36 @@
             // lblHouseNet
             // 
             lblHouseNet.AutoSize = true;
-            lblHouseNet.Location = new Point(30, 196);
-            lblHouseNet.Margin = new Padding(6, 0, 6, 0);
+            lblHouseNet.Location = new Point(16, 92);
             lblHouseNet.Name = "lblHouseNet";
-            lblHouseNet.Size = new Size(175, 32);
+            lblHouseNet.Size = new Size(88, 15);
             lblHouseNet.TabIndex = 3;
             lblHouseNet.Text = "Domèstic xarxa";
             // 
             // lblPopulation
             // 
             lblPopulation.AutoSize = true;
-            lblPopulation.Location = new Point(503, 41);
-            lblPopulation.Margin = new Padding(6, 0, 6, 0);
+            lblPopulation.Location = new Point(271, 19);
             lblPopulation.Name = "lblPopulation";
-            lblPopulation.Size = new Size(103, 32);
+            lblPopulation.Size = new Size(53, 15);
             lblPopulation.TabIndex = 2;
             lblPopulation.Text = "Població";
             // 
             // lblLoc
             // 
             lblLoc.AutoSize = true;
-            lblLoc.Location = new Point(267, 41);
-            lblLoc.Margin = new Padding(6, 0, 6, 0);
+            lblLoc.Location = new Point(144, 19);
             lblLoc.Name = "lblLoc";
-            lblLoc.Size = new Size(107, 32);
+            lblLoc.Size = new Size(55, 15);
             lblLoc.TabIndex = 1;
             lblLoc.Text = "Comarca";
             // 
             // lblYear
             // 
             lblYear.AutoSize = true;
-            lblYear.Location = new Point(30, 38);
-            lblYear.Margin = new Padding(6, 0, 6, 0);
+            lblYear.Location = new Point(16, 18);
             lblYear.Name = "lblYear";
-            lblYear.Size = new Size(55, 32);
+            lblYear.Size = new Size(28, 15);
             lblYear.TabIndex = 0;
             lblYear.Text = "Any";
             // 
@@ -240,11 +226,9 @@
             groupBox2.Controls.Add(lblBiggest);
             groupBox2.Controls.Add(lblAvarage);
             groupBox2.Controls.Add(lblPopBiggerThan);
-            groupBox2.Location = new Point(1092, 26);
-            groupBox2.Margin = new Padding(6);
+            groupBox2.Location = new Point(588, 12);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(6);
-            groupBox2.Size = new Size(496, 435);
+            groupBox2.Size = new Size(267, 204);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Estadístiques";
@@ -252,80 +236,72 @@
             // lblLowerAns
             // 
             lblLowerAns.AutoSize = true;
-            lblLowerAns.Location = new Point(414, 196);
-            lblLowerAns.Margin = new Padding(6, 0, 6, 0);
+            lblLowerAns.Location = new Point(223, 92);
             lblLowerAns.Name = "lblLowerAns";
-            lblLowerAns.Size = new Size(56, 32);
+            lblLowerAns.Size = new Size(29, 15);
             lblLowerAns.TabIndex = 7;
             lblLowerAns.Text = "N/A";
             // 
             // lblBiggerAns
             // 
             lblBiggerAns.AutoSize = true;
-            lblBiggerAns.Location = new Point(409, 145);
-            lblBiggerAns.Margin = new Padding(6, 0, 6, 0);
+            lblBiggerAns.Location = new Point(220, 68);
             lblBiggerAns.Name = "lblBiggerAns";
-            lblBiggerAns.Size = new Size(56, 32);
+            lblBiggerAns.Size = new Size(29, 15);
             lblBiggerAns.TabIndex = 6;
             lblBiggerAns.Text = "N/A";
             // 
             // lblAvarageAns
             // 
             lblAvarageAns.AutoSize = true;
-            lblAvarageAns.Location = new Point(286, 94);
-            lblAvarageAns.Margin = new Padding(6, 0, 6, 0);
+            lblAvarageAns.Location = new Point(154, 44);
             lblAvarageAns.Name = "lblAvarageAns";
-            lblAvarageAns.Size = new Size(56, 32);
+            lblAvarageAns.Size = new Size(29, 15);
             lblAvarageAns.TabIndex = 5;
             lblAvarageAns.Text = "N/A";
             // 
             // lblPopBiggerThanAns
             // 
             lblPopBiggerThanAns.AutoSize = true;
-            lblPopBiggerThanAns.Location = new Point(266, 38);
-            lblPopBiggerThanAns.Margin = new Padding(6, 0, 6, 0);
+            lblPopBiggerThanAns.Location = new Point(143, 18);
             lblPopBiggerThanAns.Name = "lblPopBiggerThanAns";
-            lblPopBiggerThanAns.Size = new Size(56, 32);
+            lblPopBiggerThanAns.Size = new Size(29, 15);
             lblPopBiggerThanAns.TabIndex = 4;
             lblPopBiggerThanAns.Text = "N/A";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(20, 196);
-            label1.Margin = new Padding(6, 0, 6, 0);
+            label1.Location = new Point(11, 92);
             label1.Name = "label1";
-            label1.Size = new Size(431, 32);
+            label1.Size = new Size(215, 15);
             label1.TabIndex = 3;
             label1.Text = "Consum domèstic per càpita més baix: ";
             // 
             // lblBiggest
             // 
             lblBiggest.AutoSize = true;
-            lblBiggest.Location = new Point(20, 145);
-            lblBiggest.Margin = new Padding(6, 0, 6, 0);
+            lblBiggest.Location = new Point(11, 68);
             lblBiggest.Name = "lblBiggest";
-            lblBiggest.Size = new Size(407, 32);
+            lblBiggest.Size = new Size(203, 15);
             lblBiggest.TabIndex = 2;
             lblBiggest.Text = "Consum domèstic per càpita més alt:";
             // 
             // lblAvarage
             // 
             lblAvarage.AutoSize = true;
-            lblAvarage.Location = new Point(20, 94);
-            lblAvarage.Margin = new Padding(6, 0, 6, 0);
+            lblAvarage.Location = new Point(11, 44);
             lblAvarage.Name = "lblAvarage";
-            lblAvarage.Size = new Size(271, 32);
+            lblAvarage.Size = new Size(137, 15);
             lblAvarage.TabIndex = 1;
             lblAvarage.Text = "Consum domèstic mitjà:";
             // 
             // lblPopBiggerThan
             // 
             lblPopBiggerThan.AutoSize = true;
-            lblPopBiggerThan.Location = new Point(20, 41);
-            lblPopBiggerThan.Margin = new Padding(6, 0, 6, 0);
+            lblPopBiggerThan.Location = new Point(11, 19);
             lblPopBiggerThan.Name = "lblPopBiggerThan";
-            lblPopBiggerThan.Size = new Size(255, 32);
+            lblPopBiggerThan.Size = new Size(126, 15);
             lblPopBiggerThan.TabIndex = 0;
             lblPopBiggerThan.Text = "Població > 20000 hab.:";
             // 
@@ -349,8 +325,7 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dtgConsumptionInfo.DefaultCellStyle = dataGridViewCellStyle2;
-            dtgConsumptionInfo.Location = new Point(22, 614);
-            dtgConsumptionInfo.Margin = new Padding(6);
+            dtgConsumptionInfo.Location = new Point(12, 288);
             dtgConsumptionInfo.Name = "dtgConsumptionInfo";
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Control;
@@ -361,7 +336,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dtgConsumptionInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dtgConsumptionInfo.RowHeadersWidth = 82;
-            dtgConsumptionInfo.Size = new Size(1566, 320);
+            dtgConsumptionInfo.Size = new Size(843, 150);
             dtgConsumptionInfo.TabIndex = 2;
             dtgConsumptionInfo.CellClick += dtgConsumptionInfo_CellClick;
             // 
@@ -423,9 +398,10 @@
             // 
             // btnClear
             // 
-            btnClear.Location = new Point(685, 470);
+            btnClear.Location = new Point(369, 220);
+            btnClear.Margin = new Padding(2, 1, 2, 1);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(150, 46);
+            btnClear.Size = new Size(81, 22);
             btnClear.TabIndex = 3;
             btnClear.Text = "Netejar";
             btnClear.UseVisualStyleBackColor = true;
@@ -433,9 +409,10 @@
             // 
             // btnSend
             // 
-            btnSend.Location = new Point(867, 470);
+            btnSend.Location = new Point(467, 220);
+            btnSend.Margin = new Padding(2, 1, 2, 1);
             btnSend.Name = "btnSend";
-            btnSend.Size = new Size(150, 46);
+            btnSend.Size = new Size(81, 22);
             btnSend.TabIndex = 4;
             btnSend.Text = "Enviar";
             btnSend.UseVisualStyleBackColor = true;
@@ -447,15 +424,14 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1612, 960);
+            ClientSize = new Size(868, 450);
             Controls.Add(btnSend);
             Controls.Add(btnClear);
             Controls.Add(dtgConsumptionInfo);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Margin = new Padding(6);
             Name = "Form1";
             Text = "Gestió de dades demogràfiques de regions";
             Load += Form1_Load;

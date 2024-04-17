@@ -1,5 +1,4 @@
-﻿using CsvHelper.Configuration.Attributes;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 
 namespace AC3GUIProgram
 {
