@@ -14,7 +14,6 @@
 		<PackageReference Include="Npgsql" Version="8.0.2" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="Persistance\DAO\" />
 	  <Folder Include="Persistance\Mapping\" />
 	</ItemGroup>
 </Project>
