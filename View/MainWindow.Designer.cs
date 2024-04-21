@@ -1,6 +1,6 @@
 ﻿namespace AC3GUIProgram
 {
-    partial class Form1
+    partial class MainWindow
     {
         /// <summary>
         ///  Required designer variable.
@@ -69,6 +69,7 @@
             btnClear = new Button();
             btnSend = new Button();
             errorHandler = new ErrorProvider(components);
+            btnDBStore = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgConsumptionInfo).BeginInit();
@@ -178,7 +179,6 @@
             lblEconomicAct.Size = new Size(134, 30);
             lblEconomicAct.TabIndex = 4;
             lblEconomicAct.Text = "Activitats econòmiques \r\ni fonts pròpies";
-            lblEconomicAct.Click += label5_Click;
             // 
             // lblHouseNet
             // 
@@ -422,19 +422,30 @@
             // 
             errorHandler.ContainerControl = this;
             // 
-            // Form1
+            // btnDBStore
+            // 
+            btnDBStore.Location = new Point(276, 219);
+            btnDBStore.Name = "btnDBStore";
+            btnDBStore.Size = new Size(75, 23);
+            btnDBStore.TabIndex = 5;
+            btnDBStore.Text = "Persistir";
+            btnDBStore.UseVisualStyleBackColor = true;
+            btnDBStore.Click += btnDBStore_Click;
+            // 
+            // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(868, 450);
+            Controls.Add(btnDBStore);
             Controls.Add(btnSend);
             Controls.Add(btnClear);
             Controls.Add(dtgConsumptionInfo);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Name = "Form1";
+            Name = "MainWindow";
             Text = "Gestió de dades demogràfiques de regions";
-            Load += Form1_Load;
+            Load += MainWindow_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -484,5 +495,6 @@
         private Button btnClear;
         private Button btnSend;
         private ErrorProvider errorHandler;
+        private Button btnDBStore;
     }
 }

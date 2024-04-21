@@ -1,9 +1,14 @@
 using AC3GUIProgram.DTO;
+using AC3GUIProgram.Persistance.Mapping;
 using AC3GUIProgram.Persistance.Utils;
+using AC3GUIProgram.View;
+using Microsoft.VisualBasic;
+using Npgsql;
+using System.Security.Cryptography.Xml;
 
 namespace AC3GUIProgram
 {
-    public partial class Form1 : Form
+    public partial class MainWindow : Form
     {
         const string FileInfoPath = "../../../DataFiles/WaterConsumptionOnCat.csv";
         const string FileLocationPath = "../../../DataFiles/Location.xml";
@@ -14,17 +19,12 @@ namespace AC3GUIProgram
         const int HighPop = 20000;
         const int LimitYear = 2050;
         private List<ConsumptionInfo> groupInfo;
-        public Form1()
+        public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainWindow_Load(object sender, EventArgs e)
         {
             using (StreamReader sr = new StreamReader(FileInfoPath))
             {
@@ -33,6 +33,18 @@ namespace AC3GUIProgram
             CreateTable();
             CreateComboBoxContent();
             GenerateDiferenteLocations();
+            CheckDBConnection();
+        }
+        private void CheckDBConnection()
+        {
+            try
+            {
+                using ConsumptionInfoDAO infoDBController = new ConsumptionInfoDAO();
+            }
+            catch (Exception)
+            {
+                btnDBStore.Enabled = false;
+            }
         }
         private void GenerateDiferenteLocations()
         {
@@ -114,7 +126,7 @@ namespace AC3GUIProgram
             {
 
             }
-            
+
         }
 
 
@@ -130,24 +142,22 @@ namespace AC3GUIProgram
             cmbLocName.SelectedIndex = 0;
             cmbYear.SelectedIndex = 0;
         }
-
-        private void btnSend_Click(object sender, EventArgs e)
+        private bool ValidateFormValues(ConsumptionInfo fillValue)
         {
-            errorHandler.Clear();
-            ConsumptionInfo newInfo = new ConsumptionInfo();
             bool error = false;
+
             try
             {
-                newInfo.HouseExpenseCapita = Convert.ToSingle(txtConsumCap.Text);
+                fillValue.HouseExpenseCapita = Convert.ToSingle(txtConsumCap.Text);
             }
             catch (FormatException)
             {
                 errorHandler.SetError(txtConsumCap, txtConsumCap.Text == string.Empty ? CanNotBeEmpty : InvalidFormat);
-                error=true;
+                error = true;
             }
             try
             {
-                newInfo.EconomicAct = Convert.ToInt32(txtEconomicAct.Text);
+                fillValue.EconomicAct = Convert.ToInt32(txtEconomicAct.Text);
             }
             catch (FormatException)
             {
@@ -156,7 +166,7 @@ namespace AC3GUIProgram
             }
             try
             {
-                newInfo.HouseNet = Convert.ToInt32(txtHouseNet.Text);
+                fillValue.HouseNet = Convert.ToInt32(txtHouseNet.Text);
             }
             catch (FormatException)
             {
@@ -165,7 +175,7 @@ namespace AC3GUIProgram
             }
             try
             {
-                newInfo.Population = Convert.ToInt32(txtPopulation.Text);
+                fillValue.Population = Convert.ToInt32(txtPopulation.Text);
             }
             catch (FormatException)
             {
@@ -174,18 +184,24 @@ namespace AC3GUIProgram
             }
             try
             {
-                newInfo.Total = Convert.ToInt32(txtTotal.Text);
+                fillValue.Total = Convert.ToInt32(txtTotal.Text);
             }
             catch (FormatException)
             {
                 error = true;
                 errorHandler.SetError(txtTotal, txtTotal.Text == string.Empty ? CanNotBeEmpty : InvalidFormat);
             }
-            newInfo.Year = Convert.ToInt32(cmbYear.SelectedValue);
-            newInfo.LocCode = (int)cmbLocName.SelectedValue;
-            newInfo.LocName = cmbLocName.Text;
+            fillValue.Year = Convert.ToInt32(cmbYear.SelectedValue);
+            fillValue.LocCode = (int)cmbLocName.SelectedValue;
+            fillValue.LocName = cmbLocName.Text;
+            return error;
+        }
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            errorHandler.Clear();
+            ConsumptionInfo newInfo = new ConsumptionInfo();
 
-            if (!error)
+            if (!ValidateFormValues(newInfo))
             {
                 groupInfo.Add(newInfo);
                 TableAddElement(newInfo);
@@ -194,7 +210,28 @@ namespace AC3GUIProgram
                     newInfo
                 });
             }
-            
+
+        }
+
+        private void btnDBStore_Click(object sender, EventArgs e)
+        {
+            errorHandler.Clear();
+            ConsumptionInfo newInfo = new ConsumptionInfo();
+
+            if (!ValidateFormValues(newInfo))
+            {
+                using ConsumptionInfoDAO dbConn = new ConsumptionInfoDAO();
+                try
+                {
+                    dbConn.Add(newInfo);
+                    new InsertNotice().ShowDialog();
+                }
+                catch (Exception)
+                {
+                    errorHandler.SetError(btnDBStore, "El programa no ha pogut insertar la nova data a la base de dades.");
+                }
+                
+            }
         }
     }
 }

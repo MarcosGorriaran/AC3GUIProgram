@@ -22,6 +22,8 @@ namespace AC3GUIProgram.Persistance.Mapping
         private ConsumptionInfoDAO(string connectionString)
         {
             dbConn = new NpgsqlConnection(connectionString);
+            dbConn.Open();
+            
         }
         public ConsumptionInfoDAO() : this(ConfigurationHelper.GetConnectionString())
         {
@@ -120,7 +122,13 @@ namespace AC3GUIProgram.Persistance.Mapping
 
             cmd.ExecuteNonQuery();
         }
-
+        public void Update(IEnumerable<ConsumptionInfo> entities)
+        {
+            foreach(ConsumptionInfo entity in entities)
+            {
+                Update(entity);
+            }
+        }
         public void Dispose()
         {
             dbConn.Close();

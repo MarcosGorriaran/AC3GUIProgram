@@ -11,5 +11,6 @@ namespace AC3GUIProgram.Persistance.DAO
         public void Remove(T entity);
         public void Remove(IEnumerable<T> entities);
         public void Update(T entity);
+        public void Update(IEnumerable<T> entities);
     }
 }
