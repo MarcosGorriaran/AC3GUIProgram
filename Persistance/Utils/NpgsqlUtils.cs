@@ -17,6 +17,7 @@ namespace AC3GUIProgram.Persistance.Utils
                 EconomicAct = reader.GetInt32(5),
                 Total = reader.GetInt32(6),
                 HouseExpenseCapita = reader.GetFloat(7),
+                id = reader.GetInt32(8)
             };
             return result;
         }

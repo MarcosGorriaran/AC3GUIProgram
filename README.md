@@ -1,1 +1,2 @@
 https://learn.microsoft.com/en-us/archive/msdn-magazine/2004/september/data-security-stop-sql-injection-attacks-before-they-stop-you
+https://joshclose.github.io/CsvHelper/examples/configuration/class-maps/ignoring-properties/

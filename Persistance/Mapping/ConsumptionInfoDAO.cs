@@ -32,11 +32,13 @@ namespace AC3GUIProgram.Persistance.Mapping
         {
             string getAllSQL = $"SELECT {YearColName}, {LocCodeColName}, {LocNameColName}," +
                 $" {PopColName}, {HouseNetColName}, {EconomicActColName}, {TotalColName}," +
-                $" {HouseExpenseCapitaColName}" +
-                $" FROM {ObjectTable} WHERE {IdColName} = {id}";
+                $" {HouseExpenseCapitaColName}, {IdColName}" +
+                $" FROM {ObjectTable} WHERE {IdColName} = @{IdColName}";
 
             ConsumptionInfo result = new ConsumptionInfo();
-            NpgsqlDataReader reader = new NpgsqlCommand(getAllSQL, dbConn).ExecuteReader();
+            NpgsqlCommand cmd = new NpgsqlCommand(getAllSQL, dbConn);
+            cmd.Parameters.AddWithValue(IdColName,id);
+            NpgsqlDataReader reader = cmd.ExecuteReader();
 
             if (reader.Read())
             {
@@ -48,7 +50,7 @@ namespace AC3GUIProgram.Persistance.Mapping
         {
             const string GetAllSQL = $"SELECT {YearColName}, {LocCodeColName}, {LocNameColName}," +
                 $" {PopColName}, {HouseNetColName}, {EconomicActColName}, {TotalColName}," +
-                $" {HouseExpenseCapitaColName}" +
+                $" {HouseExpenseCapitaColName}, {IdColName}" +
                 $" FROM "+ObjectTable;
 
             List<ConsumptionInfo> result = new List<ConsumptionInfo>();
@@ -62,23 +64,61 @@ namespace AC3GUIProgram.Persistance.Mapping
         }
         public void Add(ConsumptionInfo entity)
         {
+            const string InsertSQL = $"INSERT INTO {ObjectTable}({YearColName}, {LocCodeColName}, {LocNameColName}," +
+                $" {PopColName}, {HouseNetColName}, {EconomicActColName}, {TotalColName}," +
+                $" {HouseExpenseCapitaColName})" +
+                $" VALUES (@{YearColName}, @{LocCodeColName}, @{LocNameColName}, @{PopColName}," +
+                $" @{HouseNetColName}, @{EconomicActColName}, @{TotalColName}, @{HouseExpenseCapitaColName})";
+            NpgsqlCommand cmd = new NpgsqlCommand(InsertSQL, dbConn);
+            cmd.Parameters.AddWithValue(YearColName, entity.Year);
+            cmd.Parameters.AddWithValue(LocCodeColName, entity.LocCode);
+            cmd.Parameters.AddWithValue(LocNameColName, entity.LocName);
+            cmd.Parameters.AddWithValue(PopColName, entity.Population);
+            cmd.Parameters.AddWithValue(HouseNetColName, entity.HouseNet);
+            cmd.Parameters.AddWithValue(EconomicActColName, entity.EconomicAct);
+            cmd.Parameters.AddWithValue(TotalColName, entity.Total);
+            cmd.Parameters.AddWithValue(HouseExpenseCapitaColName, entity.HouseExpenseCapita);
 
+            cmd.ExecuteNonQuery();
         }
         public void Add(IEnumerable<ConsumptionInfo> entities)
         {
-
+            foreach(ConsumptionInfo info in entities)
+            {
+                Add(info);
+            }
         }
         public void Remove(ConsumptionInfo entity)
         {
+            const string RemoveSQL = $"DELETE FROM {ObjectTable} WHERE {IdColName}=@{IdColName}";
 
+            NpgsqlCommand cmd = new NpgsqlCommand(RemoveSQL, dbConn);
+            cmd.Parameters.AddWithValue(IdColName, entity.id);
         }
         public void Remove(IEnumerable<ConsumptionInfo> entities)
         {
-
+            foreach(ConsumptionInfo entity in entities)
+            {
+                Remove(entity);
+            }
         }
         public void Update(ConsumptionInfo entity)
         {
+            const string UpdateSQL = $"UPDATE {ObjectTable} SET {YearColName}=@{YearColName}, {LocCodeColName}=@{LocCodeColName}, {LocNameColName}=@{LocNameColName}," +
+                $" {PopColName}=@{PopColName}, {HouseNetColName}=@{HouseNetColName}, {EconomicActColName}=@{EconomicActColName}, {TotalColName}=@{TotalColName}, {HouseExpenseCapitaColName}=@{HouseExpenseCapitaColName}" +
+                $" WHERE {IdColName}=@{IdColName}";
+            NpgsqlCommand cmd = new NpgsqlCommand(UpdateSQL, dbConn);
 
+            cmd.Parameters.AddWithValue(YearColName, entity.Year);
+            cmd.Parameters.AddWithValue(LocCodeColName, entity.LocCode);
+            cmd.Parameters.AddWithValue(LocNameColName, entity.LocName);
+            cmd.Parameters.AddWithValue(PopColName, entity.Population);
+            cmd.Parameters.AddWithValue(HouseNetColName, entity.HouseNet);
+            cmd.Parameters.AddWithValue(EconomicActColName, entity.EconomicAct);
+            cmd.Parameters.AddWithValue(TotalColName, entity.Total);
+            cmd.Parameters.AddWithValue(HouseExpenseCapitaColName, entity.HouseExpenseCapita);
+
+            cmd.ExecuteNonQuery();
         }
 
         public void Dispose()

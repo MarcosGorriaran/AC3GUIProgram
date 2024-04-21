@@ -6,6 +6,9 @@ namespace AC3GUIProgram.DTO
     [XmlRoot("WaterConsumptionOnCat")]
     public class ConsumptionInfo
     {
+        [XmlIgnore]
+        [Ignore]
+        public int id {  get; set; }
         [XmlElement("Any")]
         [Name("Any")]
         public int Year { get; set; }
