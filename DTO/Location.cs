@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace AC3GUIProgram
+namespace AC3GUIProgram.DTO
 {
     public class Location
     {
@@ -11,12 +11,12 @@ namespace AC3GUIProgram
 
         public override bool Equals(object? obj)
         {
-            if(obj != null && obj is Location)
+            if (obj != null && obj is Location)
             {
-                return ((Location) obj).LocCode == LocCode && ((Location)obj).LocName == LocName; ;
+                return ((Location)obj).LocCode == LocCode && ((Location)obj).LocName == LocName; ;
             }
             return false;
-            
+
         }
         public override int GetHashCode()
         {

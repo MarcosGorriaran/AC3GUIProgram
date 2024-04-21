@@ -2,14 +2,14 @@
 
 namespace AC3GUIProgram.Persistance.DAO
 {
-    public interface IDAO
+    public interface IDAO<T>
     {
-        IDAO GetById<T>(T id);
-        public IEnumerable<IDAO> GetAll();
-        public void Add(IDAO entity);
-        public void Add(IEnumerable<IDAO> entities);
-        public void Remove(IDAO entity);
-        public void Remove(IEnumerable<IDAO> entities);
-        public void Update(IDAO entity);
+        public T GetById<TId>(TId id);
+        public IEnumerable<T> GetAll();
+        public void Add(T entity);
+        public void Add(IEnumerable<T> entities);
+        public void Remove(T entity);
+        public void Remove(IEnumerable<T> entities);
+        public void Update(T entity);
     }
 }

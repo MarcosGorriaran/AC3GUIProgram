@@ -1,3 +1,1 @@
-Getting started | CSVHelper. (s. f.). https://joshclose.github.io/CsvHelper/getting-started/
-Appending to an existing file | CSVHelper. (s. f.). https://joshclose.github.io/CsvHelper/examples/writing/appending-to-an-existing-file/
-ComboBox.SelectedText doesn’t give me the SelectedText. (s. f.). Stack Overflow. https://stackoverflow.com/questions/10194171/combobox-selectedtext-doesnt-give-me-the-selectedtext
+https://learn.microsoft.com/en-us/archive/msdn-magazine/2004/september/data-security-stop-sql-injection-attacks-before-they-stop-you

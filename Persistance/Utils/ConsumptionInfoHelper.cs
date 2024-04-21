@@ -1,6 +1,6 @@
-﻿using M3UF5CSVFileManagement;
+﻿using AC3GUIProgram.DTO;
 
-namespace AC3GUIProgram
+namespace AC3GUIProgram.Persistance.Utils
 {
     public static class ConsumptionInfoHelper
     {
@@ -16,11 +16,11 @@ namespace AC3GUIProgram
         }
         public static bool IsHighestCapita(int index, List<ConsumptionInfo> info)
         {
-            return info[index].HouseExpenseCapita >= info.Max(info=>info.HouseExpenseCapita);
+            return info[index].HouseExpenseCapita >= info.Max(info => info.HouseExpenseCapita);
         }
         public static bool IsLowestCapita(int index, List<ConsumptionInfo> info)
         {
-            return info[index].HouseExpenseCapita <= info.Min(info=>info.HouseExpenseCapita);
+            return info[index].HouseExpenseCapita <= info.Min(info => info.HouseExpenseCapita);
         }
     }
 }

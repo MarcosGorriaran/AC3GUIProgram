@@ -1,6 +1,7 @@
-﻿using CsvHelper.Configuration;
+﻿using AC3GUIProgram.DTO;
+using CsvHelper.Configuration;
 
-namespace M3UF5CSVFileManagement
+namespace AC3GUIProgram.Persistance.Mapping
 {
     public class ConsumptionInfoCSVMap : ClassMap<ConsumptionInfo>
     {

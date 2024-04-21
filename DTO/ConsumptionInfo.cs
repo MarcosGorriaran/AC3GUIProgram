@@ -1,8 +1,7 @@
-﻿using AC3GUIProgram;
-using CsvHelper.Configuration.Attributes;
+﻿using CsvHelper.Configuration.Attributes;
 using System.Xml.Serialization;
 
-namespace M3UF5CSVFileManagement
+namespace AC3GUIProgram.DTO
 {
     [XmlRoot("WaterConsumptionOnCat")]
     public class ConsumptionInfo
@@ -18,19 +17,19 @@ namespace M3UF5CSVFileManagement
         public string LocName { get; set; }
         [XmlElement("Poblacio")]
         [Name("Població")]
-        public int Population {  get; set; }
+        public int Population { get; set; }
         [XmlElement("Domestic_xarxa")]
         [Name("Domèstic xarxa")]
-        public int HouseNet {  get; set; }
+        public int HouseNet { get; set; }
         [XmlElement("Activitats_economicas")]
         [Name("Activitats econòmiques i fonts pròpies")]
-        public int EconomicAct {  get; set; }
+        public int EconomicAct { get; set; }
         [XmlElement("Total")]
         [Name("Total")]
-        public int Total {  get; set; }
+        public int Total { get; set; }
         [XmlElement("Consum_domestic_per_capita")]
         [Name("Consum domèstic per càpita")]
-        public float HouseExpenseCapita {  get; set; }
+        public float HouseExpenseCapita { get; set; }
 
         public Location GetLocation()
         {
@@ -43,14 +42,14 @@ namespace M3UF5CSVFileManagement
 
         public override string ToString()
         {
-            return $"Year: {this.Year}"+Environment.NewLine+
-            $"LocCode: {this.LocCode}" + Environment.NewLine +
-            $"LocName: {this.LocName}" + Environment.NewLine +
-            $"Population: {this.Population}" + Environment.NewLine +
-            $"HouseNet: {this.HouseNet}" + Environment.NewLine +
-            $"EconomicAct: {this.EconomicAct}" + Environment.NewLine +
-            $"Total: {this.Total}" + Environment.NewLine +
-            $"HouseExpenseCapita: {this.HouseExpenseCapita}" + Environment.NewLine;
+            return $"Year: {Year}" + Environment.NewLine +
+            $"LocCode: {LocCode}" + Environment.NewLine +
+            $"LocName: {LocName}" + Environment.NewLine +
+            $"Population: {Population}" + Environment.NewLine +
+            $"HouseNet: {HouseNet}" + Environment.NewLine +
+            $"EconomicAct: {EconomicAct}" + Environment.NewLine +
+            $"Total: {Total}" + Environment.NewLine +
+            $"HouseExpenseCapita: {HouseExpenseCapita}" + Environment.NewLine;
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Globalization;
 using CsvHelper.Configuration;
 using System.Xml.Serialization;
 
-namespace M3UF5CSVFileManagement
+namespace AC3GUIProgram.Persistance.Utils
 {
     public static class CRUD
     {
@@ -15,7 +15,7 @@ namespace M3UF5CSVFileManagement
             };
             using FileStream stream = File.Open(path, FileMode.Append);
             using StreamWriter writer = new StreamWriter(stream);
-            using CsvWriter writeCSV = new CsvWriter(writer,config);
+            using CsvWriter writeCSV = new CsvWriter(writer, config);
 
             foreach (Class element in elements)
             {
@@ -23,7 +23,7 @@ namespace M3UF5CSVFileManagement
                 writeCSV.NextRecord();
             }
         }
-        public static List<Class> CSVDeserialize<Class,TMap>(StreamReader reader) where TMap : ClassMap
+        public static List<Class> CSVDeserialize<Class, TMap>(StreamReader reader) where TMap : ClassMap
         {
             List<Class> result;
             using CsvReader excelReader = new CsvReader(reader, CultureInfo.InvariantCulture);
@@ -83,12 +83,12 @@ namespace M3UF5CSVFileManagement
             }
             return result;
         }
-        public static Dictionary<string,float> GetAvarage<Class>(List<Class> list, Func<Class,object> groupElement, Func<Class,float>avgValue, Func<Class,string> keyValue)
+        public static Dictionary<string, float> GetAvarage<Class>(List<Class> list, Func<Class, object> groupElement, Func<Class, float> avgValue, Func<Class, string> keyValue)
         {
             var query = from element in list
-                         group element by groupElement(element);
-            Dictionary<string, float> result=new Dictionary<string, float>();
-            foreach(var item in query)
+                        group element by groupElement(element);
+            Dictionary<string, float> result = new Dictionary<string, float>();
+            foreach (var item in query)
             {
                 result.Add(keyValue(item.First()), item.Average(avgValue));
             }
